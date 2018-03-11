@@ -47,7 +47,7 @@ var articles = {
                     
                     </p>
                     `
-                   },
+                   }
 };
 function createTemplate (data){
     var title   = data.title;
@@ -94,7 +94,7 @@ app.get('/:articleName',function(req,res){
     //articleName==article-one
     //articles[articleName]== {} contant object for article one
     var articleName = req.parans.articleName;
-  res.send(createTemplate(articles[articleName]));
+    res.send(createTemplate(articles[articleName]));
 });
   
 app.get('/ui/style.css', function (req, res) {
