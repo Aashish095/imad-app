@@ -25,10 +25,10 @@ var articleone = {
                 </p>`
 };   
 function createTemplate (data){
-    var title   = data,title;
-    var date    = data,date;
-    var heading = data,heading;
-    var contant = data,contant;
+    var title   = data.title;
+    var date    = data.date;
+    var heading = data.heading;
+    var contant = data.contant;
     var htmlTemplate = `
     <html>
         <head>
