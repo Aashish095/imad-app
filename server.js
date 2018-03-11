@@ -5,25 +5,50 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleone = {
-    title:   'article one i aashish jain',
-    heading: 'article one',
-    date:    'march 21 2018',
-    contant:`                                             
-                 
-                 <p>
-                    this is the convient for my one this is the convient for my one  this is the convient for my one  this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one. 
-                
-                </p>
-                <p>
-                    this is the convient for my one this is the convient for my one  this is the convient for my one  this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one. 
-                
-                </p>
-                <p>
-                    this is the convient for my one this is the convient for my one  this is the convient for my one  this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one. 
-                
-                </p>`
-};   
+var articles = {
+    'article-one' :{
+        title:   'article one i aashish jain',
+        heading: 'article one',
+        date:    'march 21 2018',
+        contant:`                                             
+                     
+                     <p>
+                        this is the convient for my one this is the convient for my one  this is the convient for my one  this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one. 
+                    
+                    </p>
+                    <p>
+                        this is the convient for my one this is the convient for my one  this is the convient for my one  this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one. 
+                    
+                    </p>
+                    <p>
+                        this is the convient for my one this is the convient for my one  this is the convient for my one  this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one. 
+                    
+                    </p>`
+                   },
+    'article-two' : {
+        title:   'article two i aashish jain',
+        heading: 'article two',
+        date:    'march 22 2018',
+        contant:`                                             
+                     
+                     <p>
+                        this is the convient for my two
+                    </p>
+                   `
+                   },
+    'article-three' : { 
+        title:   'article three i aashish jain',
+        heading: 'article three',
+        date:    'march 23 2018',
+        contant:`                                             
+                     
+                     <p>
+                        this is the convient for my one this is the convient for my one  this is the convient for my one  this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one this is the convient for my one. 
+                    
+                    </p>
+                    `
+                   },
+};
 function createTemplate (data){
     var title   = data.title;
     var date    = data.date;
@@ -64,17 +89,13 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res){
-  res.send(createTemplate(articleone));
+app.get('/:articleName',function(req,res){
+    //articleName==article-one
+    //articles[articleName]== {} contant object for article one
+    var articleName =req.parans.articleName;
+  res.send(createTemplate[articleName]);
 });
-app.get('/article-two',function(req,res){
-     res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-
-});
-app.get('/article-three',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-
-});
+  
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
