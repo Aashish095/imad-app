@@ -85,6 +85,7 @@ function createTemplate (data){
      `;
       return htmlTemplate;
 }
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -92,8 +93,8 @@ app.get('/', function (req, res) {
 app.get('/:articleName',function(req,res){
     //articleName==article-one
     //articles[articleName]== {} contant object for article one
-    var articleName =req.parans.articleName;
-  res.send(createTemplate[articleName]);
+    var articleName = req.parans.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
   
 app.get('/ui/style.css', function (req, res) {
