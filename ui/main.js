@@ -5,7 +5,7 @@ var element = document.getElementById("main-text"
 );
 element.innerHTML ='NEW value';
 
-var img = document.getElementById("modi");
+var img = document.getElementById("madi");
 img.onclick = function(){
     img.style.marginleft='100px';
 
