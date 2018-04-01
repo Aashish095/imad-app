@@ -3,7 +3,7 @@ console.log('Loaded!');
 // chAange the text of the main text div
 var element = document.getElementById("main-text"
 );
-element.innerHTML ='NEW value';
+element.innerHTML ='aashish';
 
 var img = document.getElementById("madi");
 var marginleft =0;
